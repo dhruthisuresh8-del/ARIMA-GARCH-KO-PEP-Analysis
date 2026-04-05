@@ -1,42 +1,24 @@
-# ARIMA-GARCH Volatility Analysis: Coca-Cola & PepsiCo (2019–2024)
+## About This Project
+This report extends the Fama-French analysis of Coca-Cola (KO) and PepsiCo (PEP) 
+by modelling time-series dynamics and conditional volatility of their daily stock 
+returns from 2019 to 2024. Using the Box-Jenkins framework, KO was best described 
+by ARIMA(2,0,2) and PEP by ARIMA(5,0,2) — both confirming short-run dependence 
+but no long-run predictability, consistent with the Efficient Market Hypothesis.
 
-**Course:** Financial Econometrics (ECON1195) | Master of Finance | RMIT University
+For volatility, three GARCH-family models were tested — sGARCH(1,1), 
+GJR-GARCH(1,1), and GARCH-M(1,1) with Student-t innovations. The GARCH-M(1,1) 
+with Student-t outperformed both alternatives for KO (AIC: 3.2103) and PEP 
+(AIC: 3.1464), capturing volatility clustering, fat-tailed return distributions, 
+and a direct risk-return trade-off. No strong leverage asymmetry was found in 
+either stock.
 
-## Overview
-Extends the Fama-French analysis by modelling time-series dynamics and 
-conditional volatility of KO and PEP daily returns from 2019 to 2024 using 
-ARIMA and GARCH-family models.
+The conclusion confirms that Coca-Cola is the more defensive, stable asset with 
+lower volatility persistence, while PepsiCo carries higher sensitivity to risk 
+premiums and a more cyclical exposure profile. Conservative investors seeking 
+steady returns may prefer KO, while those targeting tactical value opportunities 
+within consumer staples may consider PEP. The GARCH-M(1,1) with Student-t is 
+recommended as the preferred specification for ongoing volatility monitoring 
+and portfolio stress testing for both stocks.
 
-## Methods Used
-- ARIMA modelling for mean return dynamics (Box-Jenkins framework)
-- GARCH(1,1), GJR-GARCH(1,1), GARCH-M(1,1) for volatility dynamics
-- Model selection via AIC/BIC and Ljung-Box diagnostic tests
-
-## Key Findings
-
-### ARIMA Results
-| Company | Best Model | Decision |
-|---|---|---|
-| Coca-Cola (KO) | ARIMA(2,0,2) | Lowest AIC/BIC, passed all diagnostics |
-| PepsiCo (PEP) | ARIMA(5,0,2) | Only model passing all diagnostics |
-
-### GARCH Results
-| Company | Best Model | AIC |
-|---|---|---|
-| Coca-Cola (KO) | GARCH-M(1,1) with Student-t | 3.2103 |
-| PepsiCo (PEP) | GARCH-M(1,1) with Student-t | 3.1464 |
-
-- GARCH-M with Student-t outperformed standard and GJR-GARCH for both stocks
-- Both stocks show **volatility clustering** but limited leverage effects
-- Coca-Cola is the more **defensive, stable** asset; PepsiCo shows higher risk-return sensitivity
-
-## Tools & Packages
-R — rugarch, forecast, tseries, PerformanceAnalytics
-
-## Files
-| File | Description |
-|---|---|
-| FE_Assignment_2_s4103956.pdf | Full research report |
-
-## Institution
-RMIT University — Master of Finance | Financial Econometrics (ECON1195)
+**Course:** Financial Econometrics (ECON1195) | Master of Finance | RMIT University  
+**Submitted:** September 2025
